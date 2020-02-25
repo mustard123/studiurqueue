@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  studiurqueue:
+    init: true
+    networks:
+      - studiurqueue
+    extra_hosts:
+      - "host.docker.internal:${DOCKER_HOST_IP}"
+    build:
+      context: .
+      target: dev
+    ports:
+      - "8888:80"
+      - "7777:7777"
+networks:
+  studiurqueue:

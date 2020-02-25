@@ -1,0 +1,37 @@
+
+
+.queue {
+    display: flex;
+    align-items: center;
+    padding:10px;
+    overflow: hidden;
+}
+
+.queue-item {
+    margin: 10px;
+    color: white;
+    background-color: darkblue;;
+}
+
+.queue-overflow {
+    width: 40px;
+}
+
+
+.start-button-container{
+    display: flex;
+    justify-content: center;
+}
+
+.start-button {
+   background-color: #10dc60;
+   color: white;
+}
+
+.processing {
+    background-color:#66bb6a;
+}
+
+.in-process {
+    background-color: #c0ca33;
+}

@@ -1,0 +1,1 @@
+1. when adding directories to composer.json run 'composer dump-autoload -o' afterwards

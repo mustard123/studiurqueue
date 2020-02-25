@@ -1,0 +1,29 @@
+<swal
+  #promptLoginSwal
+  title="Nicht angemeldet"
+  text="Bitte mit SWITCH Login anmelden"
+  icon="info"
+  confirmButtonText="Anmelden"
+  (cancel)="canceled=true"
+  [showCancelButton]="true"
+  [focusCancel]="true"
+  (confirm)="openLoginSite()">
+</swal>
+
+<div *ngIf="canceled || failed " style="display: flex; justify-content: center; margin-top: 10px;">
+  <button (click)="failed=false; canceled=false; swal.fire()" mat-raised-button color="primary">Anmelden</button>
+  
+</div>
+
+<div *ngIf="!canceled" style="display: flex; justify-content: center; margin-top: 10px; align-items: center;">
+  <div *ngIf="!failed">
+    {{statusText}}
+  </div>
+  <div *ngIf="failed">Login fehlgeschlagen. Bist du authorisiert?</div>
+  
+  <mat-spinner diameter="20" *ngIf="statusText !='Not logged in' && statusText !='Login successful'"></mat-spinner>
+  
+</div>
+
+
+

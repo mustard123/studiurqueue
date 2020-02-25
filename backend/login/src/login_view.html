@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+<?= $this->message; ?>
+
+<div style="display: none" id="jwtToken">
+    <?= $this->jwtToken; ?>
+</div>
+
+
+
+</body>
+<script>
+    let token = document.getElementById('jwtToken').innerText.trim()
+    localStorage.setItem('jwtToken', token)
+</script>
+</html>

@@ -1,0 +1,14 @@
+{
+    "/backend/login": {
+        "target": "http://localhost:60000",
+        "secure": false,
+        "changeOrigin": true
+
+        
+      },
+      "/backend/api": {
+        "target": "http://localhost:60000",
+        "secure": false       
+      }
+
+  }

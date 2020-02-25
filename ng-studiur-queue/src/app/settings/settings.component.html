@@ -1,0 +1,39 @@
+<div style="display: flex; justify-content: center;">
+    <h1>Einstellungen</h1>
+</div>
+
+
+<div style="display: flex; justify-content: center; flex-direction: column; align-items: center; margin-bottom: 20px; ">
+    <h3>Aktuelle Admins:</h3>
+    <mat-card style="border-color: #c3e6cb; background-color: #d4edda; color: #155724; white-space: nowrap; overflow-x: auto; max-width: 80%;">{{currentAdmins}}</mat-card>
+</div>
+
+
+<div style="display: flex; justify-content: center; margin-right: 20%;margin-left: 20%; align-items: center;">
+    <div>
+        Zum Admin machen:
+    </div>
+    <mat-form-field style="width: 100%;">
+        <textarea style="overflow-y: scroll;" [(ngModel)]="makeAdminsList" matInput matTextareaAutosize matAutosizeMinRows=1 matAutosizeMaxRows=5 placeholder ="max.muster@uzh.ch, hans.peter@uh.ch "></textarea>
+      </mat-form-field>
+</div>
+
+<div style="display: flex; justify-content: center; margin-right: 20%;margin-left: 20%; align-items: center;">
+    <div>
+        Als Admin entfernen:
+    </div>
+    <mat-form-field style="width: 100%;">
+        <textarea style="overflow-y: scroll;" [(ngModel)]="removeAdminsList" matInput matTextareaAutosize matAutosizeMinRows=1 matAutosizeMaxRows=5 placeholder ="max.muster@uzh.ch, hans.peter@uh.ch "></textarea>
+      </mat-form-field>
+</div>
+
+<div style="display: flex; justify-content: center; margin-right: 20%;margin-left: 20%; align-items: center;">
+    <button (click)="submit()" mat-raised-button color="primary">Submit</button>
+    
+</div>
+
+<div *ngIf="error" style="display: flex; justify-content: center; flex-direction: column; align-items: center; margin-top: 20px; ">
+    <mat-card style="background-color: #f8d7da; color: #721c24; border-color: #f5c6cb; white-space: nowrap; overflow-x: auto; max-width: 80%;">{{errorMessage}}</mat-card>
+</div>
+
+
