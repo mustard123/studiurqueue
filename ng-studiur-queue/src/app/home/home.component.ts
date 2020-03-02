@@ -8,13 +8,38 @@ import { HttpClient } from '@angular/common/http';
 import { Ticket } from '../interfaces/StudQNotification';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-
-
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [
+    trigger('create_close', [
+      state('void', style([
+        {opacity: 0,
+        transform: 'scale(0.5)'}
+      ])),
+
+      transition('void => *', [
+        animate('1s')
+      ]),
+
+      transition('* => void', [
+        style([{
+          background: 'green'
+        }]),
+        animate(200)
+      ])
+    ])
+
+  ]
 })
 
 export class HomeComponent implements OnInit, AfterViewInit {

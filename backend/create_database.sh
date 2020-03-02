@@ -39,6 +39,6 @@ echo "Creating tables ..."
 php vendor/bin/doctrine orm:schema-tool:update --force -n 2> >(sed $'s,.*,\e[31m&\e[m,')
 
 echo "Set up mysql scheduler to close all tickets every day at 1 ."
-echo "use studiurQueue; CREATE EVENT IF NOT EXISTS close_tickets ON SCHEDULE EVERY 1 DAY_HOUR DO UPDATE ticket SET status='closed';" |  sudo mysql 2> >(sed $'s,.*,\e[31m&\e[m,')
+echo "use studiurQueue; SET GLOBAL event_scheduler = ON; CREATE EVENT IF NOT EXISTS close_tickets ON SCHEDULE EVERY 1 DAY_HOUR DO UPDATE ticket SET status='closed';" |  sudo mysql 2> >(sed $'s,.*,\e[31m&\e[m,')
 
 

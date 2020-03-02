@@ -88,7 +88,7 @@ class TicketController
             return json_encode(array("message"=> $e->getMessage()));
         }
 
-        return $ticketId;
+        return json_encode(array("ticketId" => $ticketId));
     }
 
 
@@ -119,7 +119,7 @@ class TicketController
             return json_encode(array("message"=> $e->getMessage()));
         }
 
-        return $ticketId;
+        return json_encode(array("ticketId" => $ticketId));
     }
 
     public function start_ticket($req, $res, $service, $app)
@@ -150,7 +150,7 @@ class TicketController
             return json_encode(array("message"=> $e->getMessage()));
         }
 
-        return json_encode($ticket->getId());
+        return json_encode(array("ticketId" => $ticket->getId()));
     }
 
 

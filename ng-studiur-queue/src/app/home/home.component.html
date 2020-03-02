@@ -11,7 +11,7 @@
 <div style="display: flex; align-items: center;  max-width: 95vw;">
 
 <div class="queue">
-    <button [ngClass]="{'processing': ticket.status=='processing' && ticket.id===currentTicketId, 'in-process': ticket.status=='processing' && ticket.id!==currentTicketId }"  tabIndex="-1" class="queue-item"mat-fab *ngFor="let ticket of tickets; trackBy:trackByFn">
+    <button [ngClass]="{'processing': ticket.status=='processing' && ticket.id===currentTicketId, 'in-process': ticket.status=='processing' && ticket.id!==currentTicketId }" [@create_close] tabIndex="-1" class="queue-item"mat-fab *ngFor="let ticket of tickets; trackBy:trackByFn">
         {{ ticket.id }}
     </button>
 </div> 

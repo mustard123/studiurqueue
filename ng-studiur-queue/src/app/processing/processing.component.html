@@ -1,62 +1,49 @@
 <div class="title-container">
-   <h3>
-       In Bearbeitung {{ timeElapsed | date : 'HH:mm:ss': 'UTC'}}
-   </h3>
+    <h3>
+        In Bearbeitung {{ timeElapsed | date : 'HH:mm:ss': 'UTC'}}
+    </h3>
 </div>
 <div class="title-container">
 
     <mat-chip-list>
-        <mat-chip class="processing-chip" >{{ticket.id}}</mat-chip>
+        <mat-chip class="processing-chip">{{ticket.id}}</mat-chip>
     </mat-chip-list>
 </div>
 <div class="title-container">
 
-    <h2>Studenteninfo</h2>
+    <h2>Studenteninfo:</h2>
 </div>
 
-<div *ngIf="ticket">
-    <div class="column-container">
-        <div class="row-container">
-            <div class="key">
-                Name:
-            </div>
-            <div class="value">
-                {{ticket.user.name}}
-            </div>
-
-        </div>
-        <div class="row-container">
-            <div class="key">
-                Nachname:
-            </div>
-            <div class="value">
-                {{ticket.user.surname}}
-            </div>
-        </div>
-        <div class="row-container">
-            <div class="key">
-                E-mail:
-            </div>
-            <div class="value">
-                {{ticket.user.email}}
-            </div>
-        </div>
+<div  *ngIf="ticket">
+<div class="ticket-info-container">
+    <div>
+        Name:
     </div>
-    <div style="display: flex; justify-content: center; margin-top: 10vh;">
-        <button #button (click)="stop()" class="stop-button" mat-raised-button>
-            ABSCHLIESSEN
-        </button>
+    <div>
+        {{ticket.user.name}}
     </div>
+    <div>
+        Nachname:
+    </div>
+    <div>
+        {{ticket.user.surname}}
+    </div>
+    <div>
+        E-mail:
+    </div>
+    <div>
+        {{ticket.user.email}}
+    </div>
+  
+</div>
+<div style="display: flex; align-items: center; justify-content: center; margin-top: 10vh;">
+    <button #button (click)="stop()" class="stop-button" mat-raised-button>
+        ABSCHLIESSEN
+    </button>
+</div>
 </div>
 
 
-<swal
-  #promptDataLoss
-  title="Ticket noch in Bearbeitung"
-  text=""
-  icon="info"
-  confirmButtonText="Ok"
-  [showCancelButton]="false"
-  [focusCancel]="false"
-  >
+<swal #promptDataLoss title="Ticket noch in Bearbeitung" text="" icon="info" confirmButtonText="Ok"
+    [showCancelButton]="false" [focusCancel]="false">
 </swal>

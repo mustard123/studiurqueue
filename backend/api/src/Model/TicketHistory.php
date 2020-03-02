@@ -13,20 +13,19 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="API\Repository\TicketRepo")
- * @ORM\Table(name="ticket")
+ * @ORM\Table(name="ticket_history")
  */
-class Ticket
+class TicketHistory
 {
 
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue
      */
     private $id;
 
     /**
-     * Ticket constructor.
+     * TicketHistory constructor.
      * @param $creationDate
      * @param $status
      * @param $user
@@ -46,13 +45,7 @@ class Ticket
         return $this->id;
     }
 
-    /**
-     * @param mixed $id
-     */
-    public function setId($id): void
-    {
-        $this->id = $id;
-    }
+
 
 
     /**
@@ -85,14 +78,6 @@ class Ticket
         return $this->status;
     }
 
-    /**
-     * @param string $status
-     */
-    public function setStatus($status): void
-    {
-        $this->status = $status;
-    }
-
 
     /**
      * @return User
@@ -102,20 +87,7 @@ class Ticket
         return $this->user;
     }
 
-    /**
-     * @param User $user
-     */
-    public function setUser($user): void
-    {
-        $user->addCreatedTicket($this);
-        $this->user = $user;
-    }
 
-
-    public function setCreationDate($creationDate)
-    {
-        $this->creationDate = $creationDate;
-    }
 
     public function getCreationDate(): \DateTime
     {
